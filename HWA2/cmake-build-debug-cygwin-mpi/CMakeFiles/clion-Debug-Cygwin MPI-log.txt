@@ -1,0 +1,63 @@
+C:\Users\seven\AppData\Local\JetBrains\CLion2023.1\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/usr/bin/make.exe -DCMAKE_C_COMPILER=/usr/bin/mpicc -DCMAKE_CXX_COMPILER=/usr/bin/mpic++ -G "CodeBlocks - Unix Makefiles" -S /cygdrive/c/Users/seven/Documents/github/pds/HWA2 -B /cygdrive/c/Users/seven/Documents/github/pds/HWA2/cmake-build-debug-cygwin-mpi
+-- The CXX compiler identification is GNU 11.4.0
+CMake Warning at /cygdrive/c/Users/seven/AppData/Local/JetBrains/CLion2023.1/cygwin_cmake/share/cmake-3.25.2/Modules/Platform/CYGWIN.cmake:15 (message):
+  CMake no longer defines WIN32 on Cygwin!
+
+  (1) If you are just trying to build this project, ignore this warning or
+  quiet it by setting CMAKE_LEGACY_CYGWIN_WIN32=0 in your environment or in
+  the CMake cache.  If later configuration or build errors occur then this
+  project may have been written under the assumption that Cygwin is WIN32.
+  In that case, set CMAKE_LEGACY_CYGWIN_WIN32=1 instead.
+
+  (2) If you are developing this project, add the line
+
+    set(CMAKE_LEGACY_CYGWIN_WIN32 0) # Remove when CMake >= 2.8.4 is required
+
+  at the top of your top-level CMakeLists.txt file or set the minimum
+  required version of CMake to 2.8.4 or higher.  Then teach your project to
+  build on Cygwin without WIN32.
+Call Stack (most recent call first):
+  /cygdrive/c/Users/seven/AppData/Local/JetBrains/CLion2023.1/cygwin_cmake/share/cmake-3.25.2/Modules/CMakeSystemSpecificInformation.cmake:45 (include)
+  CMakeLists.txt:2 (project)
+
+
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - failed
+-- Check for working CXX compiler: /usr/bin/mpic++
+-- Check for working CXX compiler: /usr/bin/mpic++ - broken
+CMake Error at /cygdrive/c/Users/seven/AppData/Local/JetBrains/CLion2023.1/cygwin_cmake/share/cmake-3.25.2/Modules/CMakeTestCXXCompiler.cmake:63 (message):
+  The C++ compiler
+
+    "/usr/bin/mpic++"
+
+  is not able to compile a simple test program.
+
+  It fails with the following output:
+
+    Change Dir: /cygdrive/c/Users/seven/Documents/github/pds/HWA2/cmake-build-debug-cygwin-mpi/CMakeFiles/CMakeScratch/TryCompile-Olq1bH
+    
+    Run Build Command(s):/usr/bin/make.exe -f Makefile cmTC_56b68/fast && /usr/bin/make  -f CMakeFiles/cmTC_56b68.dir/build.make CMakeFiles/cmTC_56b68.dir/build
+    make[1]: Entering directory '/cygdrive/c/Users/seven/Documents/github/pds/HWA2/cmake-build-debug-cygwin-mpi/CMakeFiles/CMakeScratch/TryCompile-Olq1bH'
+    Building CXX object CMakeFiles/cmTC_56b68.dir/testCXXCompiler.cxx.o
+    /usr/bin/mpic++   -fdiagnostics-color=always -o CMakeFiles/cmTC_56b68.dir/testCXXCompiler.cxx.o -c /cygdrive/c/Users/seven/Documents/github/pds/HWA2/cmake-build-debug-cygwin-mpi/CMakeFiles/CMakeScratch/TryCompile-Olq1bH/testCXXCompiler.cxx
+    Linking CXX executable cmTC_56b68.exe
+    /cygdrive/c/Users/seven/AppData/Local/JetBrains/CLion2023.1/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_56b68.dir/link.txt --verbose=1
+    /usr/bin/mpic++ -Wl,--enable-auto-import  CMakeFiles/cmTC_56b68.dir/testCXXCompiler.cxx.o -o cmTC_56b68.exe -Wl,--out-implib,libcmTC_56b68.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+    /usr/lib/gcc/x86_64-pc-cygwin/11/../../../../x86_64-pc-cygwin/bin/ld: cannot find -lmpi_cxx: No such file or directory
+    collect2: error: ld returned 1 exit status
+    make[1]: *** [CMakeFiles/cmTC_56b68.dir/build.make:99: cmTC_56b68.exe] Error 1
+    make[1]: Leaving directory '/cygdrive/c/Users/seven/Documents/github/pds/HWA2/cmake-build-debug-cygwin-mpi/CMakeFiles/CMakeScratch/TryCompile-Olq1bH'
+    make: *** [Makefile:127: cmTC_56b68/fast] Error 2
+    
+    
+
+  
+
+  CMake will not be able to correctly generate this project.
+Call Stack (most recent call first):
+  CMakeLists.txt:2 (project)
+
+
+-- Configuring incomplete, errors occurred!
+See also "/cygdrive/c/Users/seven/Documents/github/pds/HWA2/cmake-build-debug-cygwin-mpi/CMakeFiles/CMakeOutput.log".
+See also "/cygdrive/c/Users/seven/Documents/github/pds/HWA2/cmake-build-debug-cygwin-mpi/CMakeFiles/CMakeError.log".
