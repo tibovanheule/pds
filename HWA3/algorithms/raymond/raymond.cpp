@@ -136,7 +136,7 @@ results Run_Raymond(int n, int iterations, results results, std::normal_distribu
         std::cout << "iteration: " << iteration << std::endl;
 #endif
 
-        int randomnode = intDistribution(gen);
+        int randomnode = intDistribution(generator);
 #ifdef DEBUG
         std::cout << "Chosen random node: " << randomnode << std::endl;
 #endif
