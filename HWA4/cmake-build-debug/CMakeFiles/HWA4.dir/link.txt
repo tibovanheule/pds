@@ -1,0 +1,1 @@
+/usr/bin/g++.exe -g -Wl,--enable-auto-import CMakeFiles/HWA4.dir/main.cpp.o -o HWA4.exe -Wl,--out-implib,libHWA4.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
