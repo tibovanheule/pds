@@ -27,6 +27,7 @@
 #include <algorithm>
 #include <functional>
 #include <mutex>
+
 using namespace std;
 
 mutex pimontecarlo_mutex;
@@ -39,7 +40,7 @@ void pimontecarlo(size_t threadID, size_t numThreads, size_t N, double &pi) {
     mt19937 generator(rd());    // Mersenne Twister seeded with rd()
     uniform_real_distribution<double> distribution(-1.0, 1.0);
 
-    double pi_local = 0;
+    double pi_local = 0.0;
     for (size_t i = begin; i < end; i++) {
         double x = distribution(generator);
         double y = distribution(generator);
@@ -62,14 +63,15 @@ int main(int argc, char *argv[]) {
          << numThreads << " thread(s)." << endl;
 
     double pi = 0.0;
+// curly braces are intentional, variables go out of scope this way and fixes all memory leaks
+    {
+        // create threads
+        vector<thread> myThreads;
+        for (size_t i = 0; i < numThreads; i++)
+            myThreads.push_back(thread(&pimontecarlo, i, numThreads, N, ref(pi)));
 
-    // create threads
-    vector<thread> myThreads(numThreads);
-    for (size_t i = 0; i < numThreads; i++)
-        myThreads[i] = thread(pimontecarlo, i, numThreads, N, ref(pi));
-
-    for_each(myThreads.begin(), myThreads.end(), mem_fn(&thread::join));
-
+        for_each(myThreads.begin(), myThreads.end(), mem_fn(&thread::join));
+    }
     cout.precision(12);
     cout << "Estimated value for pi: " << pi << endl;
 

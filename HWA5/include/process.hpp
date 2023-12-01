@@ -42,7 +42,7 @@ inline Process::Process(int argc, char **argv)
     MPI_Init(&argc, &argv);
     MPI_Comm_rank(MPI_COMM_WORLD, &processRank);
     MPI_Comm_size(MPI_COMM_WORLD, &nProc);
-
+    // seed
     std::srand(std::time(nullptr) + 2 * processRank);
     uid = std::rand();
 

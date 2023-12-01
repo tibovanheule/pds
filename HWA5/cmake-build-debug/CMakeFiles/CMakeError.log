@@ -1,0 +1,36 @@
+The MPI test test_mpi for CXX in mode normal failed to compile with the following output:
+Change Dir: /cygdrive/c/Users/seven/Documents/github/pds/HWA5/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-kY2uXN
+
+Run Build Command(s):/usr/bin/make.exe -f Makefile cmTC_226a1/fast && /usr/bin/make  -f CMakeFiles/cmTC_226a1.dir/build.make CMakeFiles/cmTC_226a1.dir/build
+make[1]: Entering directory '/cygdrive/c/Users/seven/Documents/github/pds/HWA5/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-kY2uXN'
+Building CXX object CMakeFiles/cmTC_226a1.dir/test_mpi.cpp.o
+/usr/bin/g++.exe   -fdiagnostics-color=always -fexceptions -o CMakeFiles/cmTC_226a1.dir/test_mpi.cpp.o -c /cygdrive/c/Users/seven/Documents/github/pds/HWA5/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-kY2uXN/test_mpi.cpp
+Linking CXX executable cmTC_226a1.exe
+/cygdrive/c/Users/seven/AppData/Local/JetBrains/CLion2023.1/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_226a1.dir/link.txt --verbose=1
+/usr/bin/g++.exe -Wl,--enable-auto-import  CMakeFiles/cmTC_226a1.dir/test_mpi.cpp.o -o cmTC_226a1.exe -Wl,--out-implib,libcmTC_226a1.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lMPI_mpi_cxx_LIBRARY-NOTFOUND /usr/lib/libmpi.dll.a /usr/lib/libopen-rte.dll.a /usr/lib/libopen-pal.dll.a /usr/lib/libm.a /usr/lib/w32api/libgdi32.a 
+/usr/lib/gcc/x86_64-pc-cygwin/11/../../../../x86_64-pc-cygwin/bin/ld: cannot find -lMPI_mpi_cxx_LIBRARY-NOTFOUND: No such file or directory
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_226a1.dir/build.make:104: cmTC_226a1.exe] Error 1
+make[1]: Leaving directory '/cygdrive/c/Users/seven/Documents/github/pds/HWA5/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-kY2uXN'
+make: *** [Makefile:127: cmTC_226a1/fast] Error 2
+
+
+
+The MPI test test_mpi for CXX in mode normal failed to compile with the following output:
+Change Dir: /cygdrive/c/Users/seven/Documents/github/pds/HWA5/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-6mt1di
+
+Run Build Command(s):/usr/bin/make.exe -f Makefile cmTC_04cbc/fast && /usr/bin/make  -f CMakeFiles/cmTC_04cbc.dir/build.make CMakeFiles/cmTC_04cbc.dir/build
+make[1]: Entering directory '/cygdrive/c/Users/seven/Documents/github/pds/HWA5/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-6mt1di'
+Building CXX object CMakeFiles/cmTC_04cbc.dir/test_mpi.cpp.o
+/usr/bin/g++.exe   -fdiagnostics-color=always -fexceptions -o CMakeFiles/cmTC_04cbc.dir/test_mpi.cpp.o -c /cygdrive/c/Users/seven/Documents/github/pds/HWA5/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-6mt1di/test_mpi.cpp
+Linking CXX executable cmTC_04cbc.exe
+/cygdrive/c/Users/seven/AppData/Local/JetBrains/CLion2023.1/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_04cbc.dir/link.txt --verbose=1
+/usr/bin/g++.exe -Wl,--enable-auto-import  CMakeFiles/cmTC_04cbc.dir/test_mpi.cpp.o -o cmTC_04cbc.exe -Wl,--out-implib,libcmTC_04cbc.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lMPI_mpi_cxx_LIBRARY-NOTFOUND /usr/lib/libmpi.dll.a /usr/lib/libopen-rte.dll.a /usr/lib/libopen-pal.dll.a /usr/lib/libm.a /usr/lib/w32api/libgdi32.a 
+/usr/lib/gcc/x86_64-pc-cygwin/11/../../../../x86_64-pc-cygwin/bin/ld: cannot find -lMPI_mpi_cxx_LIBRARY-NOTFOUND: No such file or directory
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_04cbc.dir/build.make:104: cmTC_04cbc.exe] Error 1
+make[1]: Leaving directory '/cygdrive/c/Users/seven/Documents/github/pds/HWA5/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-6mt1di'
+make: *** [Makefile:127: cmTC_04cbc/fast] Error 2
+
+
+

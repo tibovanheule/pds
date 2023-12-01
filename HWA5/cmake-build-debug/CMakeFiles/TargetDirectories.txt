@@ -1,0 +1,3 @@
+/cygdrive/c/Users/seven/Documents/github/pds/HWA5/cmake-build-debug/CMakeFiles/hwa5.dir
+/cygdrive/c/Users/seven/Documents/github/pds/HWA5/cmake-build-debug/CMakeFiles/edit_cache.dir
+/cygdrive/c/Users/seven/Documents/github/pds/HWA5/cmake-build-debug/CMakeFiles/rebuild_cache.dir

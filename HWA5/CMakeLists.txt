@@ -3,7 +3,7 @@ project(hwa5 VERSION 0.1.0)
 
 set(CMAKE_VERBOSE_MAKEFILE TRUE)
 
-find_package(MPI REQUIRED)
+find_package(MPI )
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
 set(CMAKE_CXX_FLAGS "-O3")

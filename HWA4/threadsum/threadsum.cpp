@@ -56,9 +56,9 @@ void threadsum(int threadID, int numThreads, const vector<double> &v, vector<dou
     size_t start = threadID * v.size() / numThreads;
     size_t stop = (threadID + 1) * v.size() / numThreads;
 
-    double localSum = 0.0;
-    for (size_t i = start; i < stop; i++) localSum += v[i];
-    global[threadID] = localSum;
+    // double localSum = 0.0; // solution 1
+    for (size_t i = start; i < stop; i++) global[threadID * 64] += v[i];// localSum += v[i];
+    // global[threadID] = localSum; // solution 1
 }
 
 int main(int argc, char *argv[]) {
@@ -66,38 +66,39 @@ int main(int argc, char *argv[]) {
         cerr << "Usage: ./threadsum <number of threads>" << endl;
         exit(EXIT_FAILURE);
     }
+    // curly braces are intentional, variables go out of scope this way and fixes all memory leaks
+    {
+        int numThreads = atoi(argv[1]);
+        int N = 100000000;
 
-    int numThreads = atoi(argv[1]);
-    int N = 100000000;
+        cout << "Summing " << N << " values using "
+             << numThreads << " thread(s)." << endl;
 
-    cout << "Summing " << N << " values using "
-         << numThreads << " thread(s)." << endl;
+        // create the input vector v and put some values in v
+        vector<double> v(N);
+        for (int i = 0; i < N; i++)
+            v[i] = i;
 
-    // create the input vector v and put some values in v
-    vector<double> v(N);
-    for (int i = 0; i < N; i++)
-        v[i] = i;
+        // this vector will contain the partial sum for each thread
+        vector<double> localSum(numThreads * 64, 0);
 
-    // this vector will contain the partial sum for each thread
-    vector<double> localSum(numThreads, 0);
+        // create threads. Each thread will compute part of the sum and store
+        // its result in localSum[threadID] (threadID = 0, 1, ... numThread-1)
+        startChrono();
+        vector<thread> myThreads(numThreads);
+        for (int i = 0; i < numThreads; i++)
+            myThreads[i] = thread(threadsum, i, numThreads, cref(v), ref(localSum));
 
-    // create threads. Each thread will compute part of the sum and store
-    // its result in localSum[threadID] (threadID = 0, 1, ... numThread-1)
-    startChrono();
-    vector<thread> myThreads(numThreads);
-    for (int i = 0; i < numThreads; i++)
-        myThreads[i] = thread(threadsum, i, numThreads, cref(v), ref(localSum));
+        for_each(myThreads.begin(), myThreads.end(), mem_fn(&thread::join));
 
-    for_each(myThreads.begin(), myThreads.end(), mem_fn(&thread::join));
+        // calculate global sum
+        double globalSum = 0.0;
+        for (int i = 0; i < numThreads*64; i++)
+            globalSum += localSum[i];
 
-    // calculate global sum
-    double globalSum = 0.0;
-    for (int i = 0; i < numThreads; i++)
-        globalSum += localSum[i];
-
-    cout.precision(12);
-    cout << "Sum = " << globalSum << endl;
-    cout << "Runtime: " << stopChrono() << endl;
-
+        cout.precision(12);
+        cout << "Sum = " << globalSum << endl;
+        cout << "Runtime: " << stopChrono() << endl;
+    }
     exit(EXIT_SUCCESS);
 }

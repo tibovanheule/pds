@@ -91,14 +91,14 @@ void consumer() {
 
 int main() {
     cout << "Warning: this code runs forever..." << endl;
+    {
+        // create threads
+        thread t1(producer);
+        thread t2(consumer);
 
-    // create threads
-    thread t1(producer);
-    thread t2(consumer);
-
-    // this point will never be reached ...
-    t1.join();
-    t2.join();
-
+        // this point will never be reached ...
+        t1.join();
+        t2.join();
+    }
     exit(EXIT_SUCCESS);
 }
