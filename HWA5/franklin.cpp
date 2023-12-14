@@ -65,7 +65,7 @@ void Franklin::run(int argc, char **argv) const {
             MPI_Status status;
             MPI_Recv(recv_left, 1, MPI_INT, right, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
             MPI_Send(recv_left, 1, MPI_INT, left, status.MPI_TAG, MPI_COMM_WORLD);
-
+            
             MPI_Recv(recv_right, 1, MPI_INT, left, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
             MPI_Send(recv_right, 1, MPI_INT, right, status.MPI_TAG, MPI_COMM_WORLD);
 
